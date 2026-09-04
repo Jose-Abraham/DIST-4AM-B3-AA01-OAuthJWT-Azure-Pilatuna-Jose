@@ -1,5 +1,5 @@
 
-### MEMORIA DE COMANDOS DE AZURE CLI Y GUÍA DE DESPLIEGUE
+# MEMORIA DE COMANDOS DE AZURE CLI Y GUÍA DE DESPLIEGUE
 
 
 # 1. Instalación de Azure CLI en Windows
@@ -177,7 +177,7 @@ Password:JoseAzure2026@
 
 
 
-### DOCUMENTO ARCHIVO: README.md
+# DOCUMENTO ARCHIVO: README.md
 
 
 # Arquitectura Distribuida Segura y Despliegue en Azure
