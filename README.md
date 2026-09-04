@@ -3,16 +3,21 @@
 
 
 # 1. Instalación de Azure CLI en Windows
+```Text
 $msiPath = "$env:TEMP\AzureCLI.msi"
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile $msiPath
 Start-Process msiexec.exe -ArgumentList "/I `"$msiPath`" /quiet" -Wait
 Remove-Item $msiPath
+```
 
 # 2. Inicio de Sesión y Creación del Grupo de Recursos
+```Text
 az login
 az group create --name rg-aplicaciones-distribuidas --location eastus
+```
 
 # 3. Aprovisionamiento de Azure SQL Server y Bases de Datos
+```Text
 az provider register --namespace Microsoft.Sql
 
 az sql server create `
@@ -47,8 +52,10 @@ az sql server firewall-rule create `
   --name AllowClientIP `
   --start-ip-address 0.0.0.0 `
   --end-ip-address 255.255.255.255
+```
 
 # 4. Creación de Azure Container Registry (ACR) y Publicación de Imágenes
+```Text
 az provider register --namespace Microsoft.ContainerRegistry
 
 az acr create `
@@ -63,7 +70,9 @@ az acr login --name acraplicacionesdistribuidas
 docker-compose build
 docker-compose push
 
+```
 # 5. Despliegue de RabbitMQ en Azure Container Instances (ACI)
+```
 az provider register --namespace Microsoft.ContainerInstance
 
 az acr import `
@@ -86,8 +95,10 @@ az container create `
   --cpu 1 `
   --memory 1.5 `
   --environment-variables RABBITMQ_DEFAULT_USER=admin RABBITMQ_DEFAULT_PASS=admin123
+```
 
 # 6. Creación del Entorno de Azure Container Apps y Servicios
+```Text
 az provider register -n Microsoft.OperationalInsights --wait
 
 az containerapp env create `
@@ -157,15 +168,17 @@ az containerapp create `
              ReverseProxy__Clusters__authCluster__Destinations__authDestination__Address="https://oauth-service.app-env-distribuidas.eastus.azurecontainerapps.io/" `
              ReverseProxy__Clusters__categoriasCluster__Destinations__categoriasDestination__Address="https://categoria-service.app-env-distribuidas.eastus.azurecontainerapps.io/" `
              ReverseProxy__Clusters__vehiculosCluster__Destinations__vehiculosDestination__Address="https://vehiculo-service.app-env-distribuidas.eastus.azurecontainerapps.io/"
+```
 
 # 7. Actualización del Enrutamiento del Gateway (FQDN Final)
+```Text
 az containerapp update `
   --name gateway-service `
   --resource-group rg-aplicaciones-distribuidas `
   --set-env-vars ReverseProxy__Clusters__authCluster__Destinations__authDestination__Address="https://oauth-service.wittydune-e12820cc.eastus.azurecontainerapps.io/" `
                  ReverseProxy__Clusters__categoriasCluster__Destinations__categoriasDestination__Address="https://categoria-service.wittydune-e12820cc.eastus.azurecontainerapps.io/" `
                  ReverseProxy__Clusters__vehiculosCluster__Destinations__vehiculosDestination__Address="https://vehiculo-service.wittydune-e12820cc.eastus.azurecontainerapps.io/"
-
+```
 
 
 ## CLAVES PARA SQL SERVER 
