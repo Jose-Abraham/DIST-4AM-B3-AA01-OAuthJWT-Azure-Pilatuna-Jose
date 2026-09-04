@@ -290,11 +290,3 @@ Los recursos se mantendrán ejecutables y disponibles para revisión:
 - RabbitMQ Console: http://rabbitmq-distribuidas-jose.eastus.azurecontainer.io:15672
 
 ---
-
-## 8. Instrucciones Breves para Detener/Eliminar los Recursos de Azure Después de la Revisión
-
-Una vez concluida la revisión por parte del docente, todo el grupo de recursos y los componentes asociados desplegados en Azure se eliminarán mediante el siguiente comando en Azure CLI para evitar consumos adicionales:
-
-```Text
-az group delete --name rg-aplicaciones-distribuidas --yes --no-wait
-```
