@@ -1,6 +1,6 @@
-=====================================================================
+
 MEMORIA DE COMANDOS DE AZURE CLI Y GUÍA DE DESPLIEGUE
-=====================================================================
+
 
 # 1. Instalación de Azure CLI en Windows
 $msiPath = "$env:TEMP\AzureCLI.msi"
@@ -167,6 +167,15 @@ az containerapp update `
                  ReverseProxy__Clusters__vehiculosCluster__Destinations__vehiculosDestination__Address="https://vehiculo-service.wittydune-e12820cc.eastus.azurecontainerapps.io/"
 
 
+
+## CLAVES PARA SQL SERVER 
+Datos de conexión para SSMS / Azure Data Studio Abre tu gestor de base de datos:
+Server Name :jose-sqlserver-distribuidas3.database.windows.netAuthenticationSQL 
+Server AuthenticationLogin: 
+User:sqladminuser
+Password:JoseAzure2026@
+
+
 =====================================================================
 DOCUMENTO ARCHIVO: README.md
 =====================================================================
@@ -185,6 +194,7 @@ DOCUMENTO ARCHIVO: README.md
 
 La solución implementa una arquitectura basada en microservicios desacoplada, con un servicio independiente emisor de tokens JWT, un API Gateway como punto de entrada único, dos microservicios de negocio con persistencia en Azure SQL y comunicación asíncrona mediante un bróker de mensajería (RabbitMQ).
 
+```Text
 Diagrama de Flujo:
 [ Cliente / Postman ] ---> API Gateway (YARP Reverse Proxy)
                              |
@@ -197,6 +207,7 @@ Diagrama de Flujo:
                              +---> RabbitMQ -----+
                                      |
                              [ Azure SQL Database ]
+```
 
 ---
 
