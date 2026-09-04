@@ -1,0 +1,6 @@
+@OAuthJWT_HostAddress = http://localhost:5269
+
+GET {{OAuthJWT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

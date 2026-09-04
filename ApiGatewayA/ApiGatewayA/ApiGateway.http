@@ -1,0 +1,46 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+@ApiGateway = https://localhost:7123
+### usuario
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidXN1YXJpbyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzdWFyaW8iLCJleHAiOjE3ODg0NzkxNTcsImlzcyI6Ik9BdXRoSldUU2VydmljZSIsImF1ZCI6IkRpc3RyaWJ1aWRvc0FwcFVzZXJzIn0.23zsrrCQXFPOWrHKKtmPOjl9Ug-UDg6Ksgc3AovMeGY
+### admin
+#@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNzg4NDc5MDY5LCJpc3MiOiJPQXV0aEpXVFNlcnZpY2UiLCJhdWQiOiJEaXN0cmlidWlkb3NBcHBVc2VycyJ9.ZF1mwOVXdtLwVX77s_WEaPaRvWjmrf1b7659705PAGA
+
+
+### Consultar categorias por Gateway
+GET {{ApiGateway}}/api/Categorias
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+### Consultar vehículos por Gateway
+GET {{ApiGateway}}/api/Vehiculos
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+
+
+
+
+### Crear categoría por Gateway
+POST {{ApiGateway}}/api/Categorias
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "nombre": "Electrónica",
+  "descripcion": "Dispositivos electrónicos y gadgets",
+  "estado": true
+}
+
+### login
+### login
+POST {{ApiGateway}}/api/Auth/login
+Content-Type: application/json
+
+{
+  "usuario": "usuario",
+  "password": "1234"
+}
