@@ -182,11 +182,13 @@ az containerapp update `
 
 
 ## CLAVES PARA SQL SERVER 
+```Text
 Datos de conexión para SSMS / Azure Data Studio Abre tu gestor de base de datos:
 Server Name :jose-sqlserver-distribuidas3.database.windows.netAuthenticationSQL 
 Server AuthenticationLogin: 
 User:sqladminuser
 Password:JoseAzure2026@
+```
 
 
 
@@ -293,4 +295,6 @@ Los recursos se mantendrán ejecutables y disponibles para revisión:
 
 Una vez concluida la revisión por parte del docente, todo el grupo de recursos y los componentes asociados desplegados en Azure se eliminarán mediante el siguiente comando en Azure CLI para evitar consumos adicionales:
 
+```Text
 az group delete --name rg-aplicaciones-distribuidas --yes --no-wait
+```
